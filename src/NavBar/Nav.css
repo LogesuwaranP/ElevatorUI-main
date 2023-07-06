@@ -1,0 +1,9 @@
+.nav-comtainer{
+
+    position: sticky;
+    width: 98vw;
+    height: 50px;
+    border-radius: 5px;
+    background-color: blueviolet;
+
+}
