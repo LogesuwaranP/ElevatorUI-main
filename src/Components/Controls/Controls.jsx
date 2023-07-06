@@ -4,7 +4,7 @@ import DataContext from '../../Context/DataContext';
 import { useNavigate } from 'react-router-dom';
 const Controls = () => {
 
-  const {setDestination, setIsOpen, person, setPerson,  weigth, setWeight } = useContext(DataContext);
+  const {setDestination, setIsOpen, person, setPerson,  setToggle, setGetOut } = useContext(DataContext);
   const navigate = useNavigate();
 
 
@@ -15,12 +15,30 @@ const Controls = () => {
     }, 4500);
   }
 
+  const handlePerson=()=>{
+    setToggle(true);
+    setTimeout(() => {
+      setToggle(false);
+    }, 4000);
+  }
+
+  const handleGetOut = () =>{
+    setToggle(true);
+    setGetOut(true)
+    setTimeout(() => {
+      setToggle(false);
+      setGetOut(false)
+    }, 3000);
+
+  }
+
   return (
     <div className='main-controller'>
       <div className='person-count'>
          <button className='person' onClick={()=>{
             if(person>0)
             {
+              handleGetOut();
               setPerson(person-1);
             }
           }}> - </button>
@@ -28,6 +46,7 @@ const Controls = () => {
          <button className='person' onClick={()=>{
             if(person<6)
             {
+              handlePerson();
               setPerson(person+1);
             }
           }}> + </button>

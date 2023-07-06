@@ -9,7 +9,8 @@ export const DataProvider = ({children}) => {
     const [destination, setDestination] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [person, setPerson] = useState(0);
-    const [weight, setWeight] = useState(0);
+    const [toggle, setToggle] = useState(false);
+    const [getOut, setGetOut] = useState(false);
 
     // useEffect(()=>{
     //     axios.get('https://localhost:7005/api/Transaction').then((response) => {
@@ -38,9 +39,9 @@ export const DataProvider = ({children}) => {
             destination, setDestination,
             isOpen,setIsOpen,
             person, setPerson,
-            weight,setWeight,
+            toggle, setToggle,
+            getOut, setGetOut,
             postTransaction,
-            
 
         }}>{children}</DataContext.Provider>
       )

@@ -11,16 +11,13 @@ const OuterCar = () => {
 
 
 
-  const {floor, isOpen, setIsOpen, toggle, setToggle, current, destination} = useContext(DataContext);
+  const {floor, isOpen, setIsOpen, toggle, current,getOut } = useContext(DataContext);
   // const floor = [534,401,268,135,0]  
 
   useEffect(()=>{
-    if(toggle)
-    {
         setTimeout(() => {
             setIsOpen(true);
         }, 2000);
-    }
 
   },[])
   
@@ -38,8 +35,8 @@ const OuterCar = () => {
                 {isOpen?<Controls/>:<Direction/>}
             </div>
         </div>
-        { isOpen?
-          <div className='dude-main'>
+        { (isOpen&&toggle)?
+          <div className='dude-main' style={getOut?{width:"500px", left:"300px"}:{}}>
             <div class='dude-wrapper'>
               <div class='dude'></div>
             </div>

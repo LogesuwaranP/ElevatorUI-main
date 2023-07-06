@@ -1,14 +1,26 @@
 import React from 'react';
 import "./Nav.css"
-import { useNavigate } from 'react-router-dom';
+import {  Link } from "react-router-dom";
 
 const Nav = () => {
-    const navigate = useNavigate();
+   
   return (
-    <div className='nav-comtainer'>
-        <button onClick={()=>navigate("/")}>Home</button>
-        <button onClick={()=>navigate("/transactions")}>Transaction</button>
-        <button onClick={()=>navigate("/config")}>🔧</button>
+    <div className='nav'>
+    <ul>
+    
+    <li>
+      <Link to="/" >Home</Link>
+    </li>
+    <li>
+      <Link to="/transactions" >Transactions</Link>
+    </li>
+    <li>
+      <Link to="/config" >Configuration and Settings</Link>
+    </li>
+    <li>
+      <Link to="/usage" >Usage</Link>
+    </li>
+    </ul>
     </div>
   )
 }
