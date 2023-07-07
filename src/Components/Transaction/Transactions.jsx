@@ -7,7 +7,7 @@ const Transactions = () => {
     const[transaction, setTransaction] = useState([]);
 
     useEffect(()=>{
-        axios.get('https://localhost:7005/api/Transaction').then((response) => {
+        axios.get('https://team3-logesh.azurewebsites.net/api/Transaction').then((response) => {
             setTransaction(response.data);
             console.log(response.data);
       });

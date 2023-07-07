@@ -3,7 +3,6 @@ import "./OuterCar.css"
 import DataContext from "../../Context/DataContext"
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useNavigate } from 'react-router-dom';
 import Controls from '../Controls/Controls';
 
 
@@ -43,9 +42,6 @@ const OuterCar = () => {
           </div>:<></>
 
         }
-        
-
-
         <hr />
         <hr style={{width:"1200px", marginLeft:"-410px"}}/>
         {/* <button onClick={toggleDoor}>Toggle Door</button> */}

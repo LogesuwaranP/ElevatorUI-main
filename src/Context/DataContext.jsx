@@ -1,50 +1,50 @@
-import axios from 'axios';
-import React, {useState, createContext, useEffect  } from 'react'
+import axios from "axios";
 
-const DataContext =   createContext({});
+import React, { useState, createContext, useEffect } from "react";
 
-export const DataProvider = ({children}) => {
+const DataContext = createContext({});
 
-    const [current, setCurrent] = useState(0);
-    const [destination, setDestination] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
-    const [person, setPerson] = useState(0);
-    const [toggle, setToggle] = useState(false);
-    const [getOut, setGetOut] = useState(false);
-
-    // useEffect(()=>{
-    //     axios.get('https://localhost:7005/api/Transaction').then((response) => {
-    //      console.log(response.data);
-    //   });
-    // },[])
-
-    function postTransaction() {
-
-        axios.post('https://localhost:7005/api/Transaction', {
-            currentFloor:current,
-            destinationFloor:destination,
-            personCount:person,
-            personWeight:person*60
-        }).then((response) => {
-          console.log(response.data);
-        });
-       
-
-    }
+export const DataProvider = ({ children }) => {
+  const [current, setCurrent] = useState(0);
+  const [destination, setDestination] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [person, setPerson] = useState(0);
+  const [toggle, setToggle] = useState(false);
+  const [getOut, setGetOut] = useState(false);
+  const [emergency, setEmergency] = useState({ backgroundColor: "#666666" });
+  const [alrt, setAlrt] = useState("");
 
 
-    return (
-        <DataContext.Provider value={{
-            current, setCurrent, 
-            destination, setDestination,
-            isOpen,setIsOpen,
-            person, setPerson,
-            toggle, setToggle,
-            getOut, setGetOut,
-            postTransaction,
+  function postTransaction() {
+    axios
+      .post("https://team3-logesh.azurewebsites.net/api/Transaction", {
+        currentFloor: current,
+        destinationFloor: destination,
+        personCount: person,
+        personWeight: person * 60,
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
+  }
 
-        }}>{children}</DataContext.Provider>
-      )
-}
+  return (
+    <DataContext.Provider
+      value={{
+        current,setCurrent,
+        destination,setDestination,
+        isOpen,setIsOpen,
+        person,setPerson,
+        toggle,setToggle,
+        getOut,setGetOut,
+        postTransaction,
+        emergency,setEmergency,
+        alrt, setAlrt
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+};
 
 export default DataContext;

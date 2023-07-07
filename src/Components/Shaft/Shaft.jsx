@@ -31,17 +31,11 @@ const Shaft = () => {
     <>
         <div className='shaft-main'>
           <div className='floor-main'>
-            <div className='floor'>
-            </div>
-            <div className='floor'>
-            </div>
-            <div className='floor'>
-            </div>
-            <div className='floor'>
-            </div>
-            <div className='floor'>
-            </div>
-            
+            <div className='floor'/>
+            <div className='floor'/>
+            <div className='floor'/>
+            <div className='floor'/>
+            <div className='floor'/>
           </div>
           <div className='yellow' style={{ bottom: `${destination*145 + 10}px` }}></div>
         </div>

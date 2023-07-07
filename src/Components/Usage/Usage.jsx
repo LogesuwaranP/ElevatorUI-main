@@ -8,13 +8,13 @@ const ApexChart = () => {
   const[ser, setSer] = useState([]);
   const[title, setTitle] = useState([]);
   useEffect(()=>{
-    axios.get('https://localhost:7005/api/Transaction/group').then((response) => {
+    axios.get('https://team3-logesh.azurewebsites.net/api/Transaction/group').then((response) => {
             setData(response.data);
             console.log(response.data.numberOfTransaction);
     });
   },[])
-  var array = [30];
-  var dataArr = [""];
+  var array = [];
+  var dataArr = [];
   useEffect(()=>{
 
     console.log(data);
